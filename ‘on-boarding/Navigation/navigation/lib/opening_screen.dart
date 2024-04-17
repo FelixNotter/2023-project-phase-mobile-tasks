@@ -10,7 +10,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       body : Container(
         
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/drop.avif'),
      
@@ -34,11 +34,17 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Center(
-              child: Container(
+              child: SizedBox(
                 width: 200.0,
                 height: 50.0,
                 child: FloatingActionButton(
-                  child: Text('Get Started',
+                  tooltip: "Click Here to get Started",
+                  elevation: 0.0,
+                  onPressed: (){
+                    Navigator.pushNamed(context, "/tasks");
+                  },
+                  backgroundColor: const Color.fromARGB(255, 7, 56, 170),
+                  child:  const Text('Get Started',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -47,12 +53,6 @@ class Home extends StatelessWidget {
 
                   ),
                   ),
-                  tooltip: "Click Here to get Started",
-                  elevation: 0.0,
-                  onPressed: (){
-                    Navigator.pushNamed(context, "/tasks");
-                  },
-                  backgroundColor: Color.fromARGB(255, 7, 56, 170),
                   
                   ),
               ),

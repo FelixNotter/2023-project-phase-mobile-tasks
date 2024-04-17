@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import "card.dart";
-import 'contains.dart';
+import "custom_card_generator.dart";
+import 'model_data.dart';
 
 
 class Task extends StatefulWidget {
@@ -39,7 +39,7 @@ List<Data> card = List.empty(growable: true);
               )
               ),
                 
-                Expanded(
+                const Expanded(
                   flex: 3,
                   child: Center(
                     child: Text(
@@ -52,7 +52,7 @@ List<Data> card = List.empty(growable: true);
                     ),
                   ),
                 ),
-              Expanded(
+              const Expanded(
                 flex:1,
                 child: Icon(Icons.more_vert))],
             ),
@@ -66,11 +66,11 @@ List<Data> card = List.empty(growable: true);
           
           children: [
             Center(child: Image.asset('assets/sticky.png', fit: BoxFit.contain)),
-            SizedBox(height: 10),
-            Row(
+            const SizedBox(height: 10),
+            const Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(40, 0, 0, 0),
+                  padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
                   child: Text("Task List",
                   style: TextStyle(
                     fontSize: 19,
@@ -113,24 +113,23 @@ List<Data> card = List.empty(growable: true);
           ),
           
          
-          SizedBox(height: 30,),
-          Container(
+          const SizedBox(height: 30,),
+          SizedBox(
             width: 300,
             child: ElevatedButton(
+              key: const Key('next'),
               style: ElevatedButton.styleFrom(
               
                 backgroundColor: Colors.redAccent[100],
-                shape: RoundedRectangleBorder(),
+                shape: const RoundedRectangleBorder(),
                 
                 
               ),
               onPressed: () async {
               final result = await Navigator.pushNamed(context, '/create') as Map;
-              print(result);
-
-                final main = (result != null && result['main'] != null)?result['main']:"";
-                final date =(result != null && result['date'] != null)?result['date']:"";
-                final desc = (result != null && result['desc'] != null)?result['desc']:"";
+                final main = (result['main'] != null)?result['main']:"";
+                final date =(result['date'] != null)?result['date']:"";
+                final desc = (result['desc'] != null)?result['desc']:"";
             
               
           
@@ -145,7 +144,7 @@ List<Data> card = List.empty(growable: true);
                 
             
             }, child: 
-            Text("Create task",
+            const Text("Create task",
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,

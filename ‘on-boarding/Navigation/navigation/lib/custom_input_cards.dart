@@ -7,7 +7,8 @@ class Do extends StatefulWidget {
   final String top;
   final TextEditingController? control; 
   final IconData? icon;
-  const Do({super.key,required this.top,required this.control,this.icon});
+  final String unique;
+  const Do({super.key,required this.unique,required this.top,required this.control,this.icon});
 
   @override
   State<Do> createState() => _DoState();
@@ -38,9 +39,10 @@ class _DoState extends State<Do> {
                   height: 80,
                   width: MediaQuery.of(context).size.width*.8,
                   child: TextField(
+                    key: Key(widget.unique),
                     controller: widget.control,
                     maxLines: 4,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                     // Add hint text if desired
               
                     border: OutlineInputBorder(

@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
-import "home.dart";
-import "createTask.dart";
-import 'tasks.dart';
+import "opening_screen.dart";
+import "create_new_task_page.dart";
+import 'to_do_lists_page.dart';
 import 'task_detail.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return (MaterialApp(
     debugShowCheckedModeBanner: false,
     home: Home(),
     routes: {
@@ -16,6 +24,6 @@ void main() {
 
     },
   ));
+  }
 }
-
 

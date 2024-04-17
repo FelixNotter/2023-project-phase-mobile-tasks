@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:navigation/createTask.dart';
-import 'card.dart';
-import 'contains.dart';
+import 'model_data.dart';
 
 
 
@@ -43,7 +41,7 @@ class _DetailState extends State<Detail> {
               )
               ),
                 
-                Expanded(
+                const Expanded(
                   flex: 3,
                   child: Center(
                     child: Text(
@@ -56,7 +54,7 @@ class _DetailState extends State<Detail> {
                     ),
                   ),
                 ),
-              Expanded(
+              const Expanded(
                 flex:1,
                 child: Icon(Icons.more_vert))],
             ),
@@ -70,11 +68,11 @@ class _DetailState extends State<Detail> {
           
           children: [
             Center(child: Image.asset('assets/shop.png', fit: BoxFit.contain)),
-            SizedBox(height: 10),
-            Row(
+            const SizedBox(height: 10),
+            const Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(40, 0, 0, 0),
+                  padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
                   child: Text("Title",
                   style: TextStyle(
                     fontSize: 15,
@@ -86,7 +84,7 @@ class _DetailState extends State<Detail> {
               ],
             
             ),
-            Container(
+            SizedBox(
               width: 360,
               height : 80,
               child: Card(
@@ -107,7 +105,7 @@ class _DetailState extends State<Detail> {
                       
                       hintText: args.title,
                 
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                         borderSide: BorderSide.none,  
                     
                       ),
@@ -121,11 +119,11 @@ class _DetailState extends State<Detail> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
-            Row(
+            const SizedBox(height: 20),
+            const Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(40, 0, 0, 0),
+                  padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
                   child: Text("Description",
                   style: TextStyle(
                     fontSize: 15,
@@ -135,7 +133,7 @@ class _DetailState extends State<Detail> {
                   ),
                 ),
               ],),
-              Container(
+              SizedBox(
               width: 360,
               height : 80,
               child: Card(
@@ -154,7 +152,7 @@ class _DetailState extends State<Detail> {
                       // Add hint text if desired
                       hintText: args.desc,
                 
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                         borderSide: BorderSide.none,  
                     
                       ),
@@ -182,7 +180,7 @@ class _DetailState extends State<Detail> {
                   ),
                 ),
               ],),
-            Container(
+            SizedBox(
               width: 360,
               height : 80,
               child: Card(
@@ -197,7 +195,7 @@ class _DetailState extends State<Detail> {
                     child: TextField(
                       controller: dueDateController,
                       maxLines: 4,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                       // Add hint text if desired
                       hintText: "Date",
                 
@@ -215,8 +213,8 @@ class _DetailState extends State<Detail> {
                 ),
               ),
             ),
-            SizedBox(height: 30,),
-          Container(
+            const SizedBox(height: 30,),
+          SizedBox(
             width: 150,
             child: ElevatedButton(
             
@@ -231,7 +229,7 @@ class _DetailState extends State<Detail> {
                 'date':dueDateController.text,
               });
             }, 
-            child: Text(
+            child: const Text(
               "Save",
               style: TextStyle(
                 color: Colors.white,

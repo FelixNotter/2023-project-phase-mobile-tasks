@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import "lists.dart";
+import "custom_input_cards.dart";
 
 
 class TODO extends StatefulWidget {
@@ -20,9 +21,9 @@ class _TODOState extends State<TODO> {
     final dueDateController = TextEditingController();
     final descController = TextEditingController();
     final List<Do> cards = [
-    Do(top: "main task name",control: mainTaskController,),
-    Do(top: "Due Date",control: dueDateController,icon: Icons.calendar_month_outlined,),
-    Do(top: "Description",control : descController),
+    Do(unique: 'main_task', top: "main task name",control: mainTaskController,),
+    Do( unique: 'due_date',top: "Due Date",control: dueDateController,icon: Icons.calendar_month_outlined,),
+    Do(unique: 'desc', top: "Description",control : descController),
     
   ];
     return Scaffold(
@@ -32,7 +33,7 @@ class _TODOState extends State<TODO> {
           children: [
           Row(
               children: [
-                   Expanded(child: 
+            Expanded(child: 
              GestureDetector(
               onTap: (){
                 Navigator.pop(context);
@@ -45,7 +46,7 @@ class _TODOState extends State<TODO> {
               ),
                 
             
-                Expanded(
+                const Expanded(
                   flex: 3,
                   child: Center(
                     child: Text(
@@ -58,7 +59,7 @@ class _TODOState extends State<TODO> {
                     ),
                   ),
                 ),
-              Expanded(
+              const Expanded(
                 flex:1,
                 child: Icon(Icons.more_vert))],
             ),
@@ -77,8 +78,8 @@ class _TODOState extends State<TODO> {
           padding: const EdgeInsets.all(15.0),
           child: e,
         ),).toList(),
-        SizedBox(height: 50,),
-        Container(
+        const SizedBox(height: 50,),
+        SizedBox(
           width: 200,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
@@ -97,7 +98,8 @@ class _TODOState extends State<TODO> {
               }
              ;
             }, 
-            child: Text("Add Task",
+            child: const Text("Add Task",
+            key: Key('Add Task'),
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
