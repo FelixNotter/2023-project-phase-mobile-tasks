@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:navigation/opening_screen.dart';
+import 'package:navigation/presentation/pages/opening_screen.dart';
 
 void main() {
   testWidgets('Testing Front Page', (tester) async {

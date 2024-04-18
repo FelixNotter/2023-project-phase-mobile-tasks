@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import "custom_input_cards.dart";
+import "../widgets/custom_input_cards.dart";
 
 
 class TODO extends StatefulWidget {
@@ -17,12 +14,13 @@ class _TODOState extends State<TODO> {
   @override
   Widget build(BuildContext context) {
 
-    final mainTaskController = TextEditingController();
-    final dueDateController = TextEditingController();
-    final descController = TextEditingController();
+    final mainTaskController = TextEditingController(text: "");
+    final dueDateController = TextEditingController(text: "");
+    final descController = TextEditingController(text: "");
+
     final List<Do> cards = [
     Do(unique: 'main_task', top: "main task name",control: mainTaskController,),
-    Do( unique: 'due_date',top: "Due Date",control: dueDateController,icon: Icons.calendar_month_outlined,),
+    Do(unique: 'due_date',enabled: false,top: "Due Date",control: dueDateController,icon: Icons.calendar_month_outlined,),
     Do(unique: 'desc', top: "Description",control : descController),
     
   ];
@@ -39,7 +37,7 @@ class _TODOState extends State<TODO> {
                 Navigator.pop(context);
               },
                 child: Icon(Icons.arrow_back_ios,
-                color: Colors.redAccent[100],
+                color: Colors.blueAccent[100],
                 
                 ),
               )
@@ -83,7 +81,7 @@ class _TODOState extends State<TODO> {
           width: 200,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.redAccent[100]
+              backgroundColor: Colors.blueAccent[100]
               
             ),
             onPressed: (){

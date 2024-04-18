@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:navigation/to_do_lists_page.dart';
+import 'package:navigation/presentation/pages/to_do_lists_page.dart';
 
 void main() {
   testWidgets('Todo List Page tests', (tester) async {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:navigation/create_new_task_page.dart';
+import 'package:navigation/presentation/pages/create_new_task_page.dart';
 
 void main() {
   testWidgets('create new task page ...', (tester) async {

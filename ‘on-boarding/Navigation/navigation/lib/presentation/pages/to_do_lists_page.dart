@@ -1,7 +1,6 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
-import "custom_card_generator.dart";
-import 'model_data.dart';
+import "../widgets/custom_card_generator.dart";
+import '../../data/model_data.dart';
 
 
 class Task extends StatefulWidget {
@@ -33,7 +32,7 @@ List<Data> card = List.empty(growable: true);
                 Navigator.pop(context);
               },
                 child: Icon(Icons.arrow_back_ios,
-                color: Colors.redAccent[100],
+                color: Colors.blueAccent[200],
                 
                 ),
               )
@@ -95,17 +94,20 @@ List<Data> card = List.empty(growable: true);
                     arguments: e) as Map;
              
                 final main = (res['main'] != null)?res['main']:"";
-                final date =( res['date'] != null)?res['date']:"";
+                final date =(res['date'] != null)?res['date']:"";
                 final desc = ( res['desc'] != null)?res['desc']:"";
+                final complete = res['complete']!;
+              
                 setState(() {
                   e.title = main;
                   e.date = date;
                   e.desc = desc;
+                  e.isCompleted = complete;
                 });
                   },
                   child: Padding(
                   padding: const EdgeInsets.all(15.0),
-                  child:Todo(content: e.title,date: e.date,desc: e.desc, color: getRandomColor(),),
+                  child:Todo(content: e.title,date: e.date.toString(),desc: e.desc, color: (e.isCompleted)?Colors.greenAccent:Colors.redAccent,),
                                 ),
                 ),).toList(),
               ),
@@ -120,7 +122,7 @@ List<Data> card = List.empty(growable: true);
               key: const Key('next'),
               style: ElevatedButton.styleFrom(
               
-                backgroundColor: Colors.redAccent[100],
+                backgroundColor: Colors.blueAccent[100],
                 shape: const RoundedRectangleBorder(),
                 
                 
@@ -156,18 +158,4 @@ List<Data> card = List.empty(growable: true);
   }
 }
 
-  Color getRandomColor() {
-    List<Color> colors = [
-      Colors.red,
-      Colors.green,
-      Colors.blue,
-      Colors.yellow,
-      Colors.orange,
-      Colors.purple,
-      Colors.teal,
-    ];
-
-    Random random = Random();
-    int index = random.nextInt(colors.length);
-    return colors[index];
-  }
+  
